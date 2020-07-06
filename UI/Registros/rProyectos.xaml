@@ -59,10 +59,10 @@
                         <!--——————————————————————————————————————————————[ DATA GRID ]——————————————————————————————————————————————-->
                         <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="80" AutoGenerateColumns="False" Margin="0,10,0,0">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="TipoId" />
-                                <DataGridTextColumn Header="Tipo Tarea" />
-                                <DataGridTextColumn Header="Requerimiento" />
-                                <DataGridTextColumn Header="Tiempo" />
+                                <DataGridTextColumn Header="TipoId" Binding="{Binding TipoId}"/>
+                                <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding tipo.TipoTarea}"/>
+                                <DataGridTextColumn Header="Requerimiento" Binding="{Binding Requerimiento}"/>
+                                <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 

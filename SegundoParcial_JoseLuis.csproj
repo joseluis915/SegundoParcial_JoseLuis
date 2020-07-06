@@ -82,7 +82,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Data\" />
-	  <Folder Include="Entidades\" />
 	</ItemGroup>
 
 	<ItemGroup>
