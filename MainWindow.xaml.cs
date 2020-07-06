@@ -25,16 +25,16 @@ namespace SegundoParcial_JoseLuis
             InitializeComponent();
         }
 
-        private void rNombreMenuItem_Click(object sender, RoutedEventArgs e)
+        private void rProyectosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            rNombre rNombre = new rNombre();
-            rNombre.Show();
+            rProyectos rProyectos = new rProyectos();
+            rProyectos.Show();
         }
 
-        private void cNombreMenuItem_Click(object sender, RoutedEventArgs e)
+        private void cTareasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            cNombre cNombre = new cNombre();
-            cNombre.Show();
+            cTareas cTareas = new cTareas();
+            cTareas.Show();
         }
     }
 }

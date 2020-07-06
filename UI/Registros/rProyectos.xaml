@@ -1,4 +1,4 @@
-﻿<Window x:Class="SegundoParcial_JoseLuis.UI.Registros.rNombre"
+﻿<Window x:Class="SegundoParcial_JoseLuis.UI.Registros.rProyectos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,7 @@
         Title="REGISTRO DE " Height="450" Width="450" WindowStartupLocation="CenterScreen" Icon="/Resources/Agendar.png">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Ejemplo Id" FontWeight="Bold" FontSize="16"/>
+            <Label Content="Proyecto Id" FontWeight="Bold" FontSize="16"/>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35">
                 <TextBox x:Name="EjemploIdTextbox"  Width="230" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>

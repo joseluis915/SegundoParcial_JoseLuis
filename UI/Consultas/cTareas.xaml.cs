@@ -12,13 +12,13 @@ using System.Windows.Shapes;
 
 using SegundoParcial_JoseLuis.BLL;
 
-using static SegundoParcial_JoseLuis.UI.Registros.rNombre;
+using static SegundoParcial_JoseLuis.UI.Registros.rProyectos;
 
 namespace SegundoParcial_JoseLuis.UI.Consultas
 {
-    public partial class cNombre : Window
+    public partial class cTareas : Window
     {
-        public cNombre()
+        public cTareas()
         {
             InitializeComponent();
         }

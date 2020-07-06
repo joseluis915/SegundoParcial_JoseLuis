@@ -15,9 +15,9 @@ using SegundoParcial_JoseLuis.BLL;
 
 namespace SegundoParcial_JoseLuis.UI.Registros
 {
-    public partial class rNombre : Window
+    public partial class rProyectos : Window
     {
-        public rNombre()
+        public rProyectos()
         {
             InitializeComponent();
         }
