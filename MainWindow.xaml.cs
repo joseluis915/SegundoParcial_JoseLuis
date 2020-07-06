@@ -13,16 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using SegundoParcial_JoseLuis.UI.Registros;
+using SegundoParcial_JoseLuis.UI.Consultas;
+
 namespace SegundoParcial_JoseLuis
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void rNombreMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rNombre rNombre = new rNombre();
+            rNombre.Show();
+        }
+
+        private void cNombreMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cNombre cNombre = new cNombre();
+            cNombre.Show();
         }
     }
 }
