@@ -51,5 +51,10 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         {
 
         }
+
+        private void TiempoTotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
