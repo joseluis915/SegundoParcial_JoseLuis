@@ -23,9 +23,9 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             this.DataContext = proyectos;
 
             //—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
-            JugadoresComboBox.SelectedValuePath = "TareasId";
-            JugadoresComboBox.DisplayMemberPath = "TipoTarea";
-            JugadoresComboBox.ItemsSource = TareasBLL.GetList();
+            TipoTareaComboBox.SelectedValuePath = "TareasId";
+            TipoTareaComboBox.DisplayMemberPath = "TipoTarea";
+            TipoTareaComboBox.ItemsSource = TareasBLL.GetList();
         }
         //——————————————————————————————————————————————————————————————[ Cargar ]———————————————————————————————————————————————————————————————
         private void Cargar()
@@ -54,17 +54,48 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         //——————————————————————————————————————————————————————————————[ Buscar ]———————————————————————————————————————————————————————————————
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            Proyectos encontrado = ProyectosBLL.Buscar(proyectos.ProyectoId);
 
+            if (encontrado != null)
+            {
+                proyectos = encontrado;
+                Cargar();
+                MessageBox.Show("Proyecto Encontrado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Este Proyecto no fue encontrado.\n\nAsegurese que existe o cree uno nuevo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Limpiar();
+                //—————————————————————————————————————[ Limpiar y hacer focus en el Id]—————————————————————————————————————
+                ProyectoIdTextbox.Text = "";
+                ProyectoIdTextbox.Focus();
+            }
         }
         //——————————————————————————————————————————————————————————————[ Agregar Fila ]———————————————————————————————————————————————————————————————
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            var filaDetalle = new ProyectosDetalle
+            {
+                TareaId = Convert.ToInt32(TipoTareaComboBox.SelectedValue.ToString()),
+                Requerimiento = (RequerimientoTextBox.Text.ToString()),
+                Tiempo = Convert.ToDouble(TiempoTextBox.Text.ToString()),
+            };
 
+            this.proyectos.Detalle.Add(filaDetalle);
+            Cargar();
+
+            TipoTareaComboBox.SelectedIndex = -1;
+            RequerimientoTextBox.Clear();
+            TiempoTextBox.Clear();
         }
         //——————————————————————————————————————————————————————————————[ Remover Fila ]———————————————————————————————————————————————————————————————
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+            {
+                proyectos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                Cargar();
+            }
         }
         //——————————————————————————————————————————————————————————————[ Nuevo ]———————————————————————————————————————————————————————————————
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
