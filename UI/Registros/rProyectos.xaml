@@ -24,7 +24,7 @@
             <DatePicker x:Name="FechaTextBox" Text="{Binding Fecha}" Height="30" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ DESCRIPCION ]——————————————————————————————————————————————-->
             <Label x:Name="DescripcionLabel" Content="Descripcion del Proyecto" FontWeight="Bold"/>
-            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="48"  VerticalContentAlignment="Center"/>
+            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="48" VerticalContentAlignment="Center"/>
 
             <!--——————————————————————————————————————————————[ DETALLE ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Vertical">
@@ -75,8 +75,8 @@
                                 </StackPanel>
                             </Button>
                             <!--——————————————————————[ TiempoTotal ]——————————————————————-->
-                            <Label Content="Tiempo Total" Margin="115,0,0,0"/>
-                            <TextBox x:Name="TiempoTotalTextBox" Text="{Binding Total}" Width="100" IsReadOnly="True"/>
+                            <Label Content="Tiempo Total" Margin="60,0,0,0" FontWeight="Bold" />
+                            <TextBox x:Name="TiempoTotalTextBox" Text="{Binding Total}" Width="150" IsReadOnly="True" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>

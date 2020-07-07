@@ -47,7 +47,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             if (ProyectoIdTextbox.Text.Length == 0)
             {
                 Validado = false;
-                MessageBox.Show("Transaccion Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Transaccion Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             return Validado;
@@ -65,7 +65,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             }
             else
             {
-                MessageBox.Show($"Este Proyecto no fue encontrado.\n\nAsegurese que existe o cree uno nuevo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Este Proyecto no fue encontrado.\n\nAsegurese que existe o cree uno nuevo.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                 Limpiar();
                 //—————————————————————————————————————[ Limpiar y hacer focus en el Id]—————————————————————————————————————
                 ProyectoIdTextbox.Text = "";
@@ -115,14 +115,14 @@ namespace SegundoParcial_JoseLuis.UI.Registros
 
                 if (ProyectoIdTextbox.Text.Trim() == String.Empty)
                 {
-                    MessageBox.Show("El Campo (ProyectoId) esta vacio.\n\nDescriba el proyecto.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El Campo (ProyectoId) esta vacio.\n\nDescriba el proyecto.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     ProyectoIdTextbox.Focus();
                     return;
                 }
 
                 if (DescripcionTextBox.Text.Trim() == String.Empty)
                 {
-                    MessageBox.Show("El Campo (Descripcion del proyecto) esta vacio.\n\nDescriba el proyecto.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El Campo (Descripcion del proyecto) esta vacio.\n\nDescriba el proyecto.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
                     DescripcionTextBox.Focus();
                     return;
                 }
@@ -153,13 +153,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         //——————————————————————————————————————————————————————————————[ Tiempo Total ]———————————————————————————————————————————————————————————————
         private void TiempoTotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //double sumar = 0;
-            //double sumar2 = 0;
-            //double total;
-            //sumar = Convert.ToDouble(TiempoTextBox.Text);
-            //sumar2 = Convert.ToDouble(TiempoTotalTextBox.Text);
-            //total = sumar += sumar2;
-            //TiempoTotalTextBox.Text = total.ToString();
+
         }
     }
 }
