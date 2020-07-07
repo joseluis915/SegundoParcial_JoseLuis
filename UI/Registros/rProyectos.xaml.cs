@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +23,6 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             InitializeComponent();
             this.DataContext = proyectos;
 
-            
             //—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
             TipoTareaComboBox.SelectedValuePath = "TareaId";
             TipoTareaComboBox.DisplayMemberPath = "TipoTarea";
@@ -86,7 +86,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             this.proyectos.Detalle.Add(filaDetalle);
             Cargar();
 
-
+            TipoTareaComboBox.SelectedIndex = -1;
             RequerimientoTextBox.Clear();
             TiempoTextBox.Clear();
         }
@@ -110,6 +110,20 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             {
                 if (!Validar())
                     return;
+
+                if (ProyectoIdTextbox.Text.Trim() == String.Empty)
+                {
+                    MessageBox.Show("El Campo (ProyectoId) esta vacio.\n\nDescriba el proyecto.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    ProyectoIdTextbox.Focus();
+                    return;
+                }
+
+                if (DescripcionTextBox.Text.Trim() == String.Empty)
+                {
+                    MessageBox.Show("El Campo (Descripcion del proyecto) esta vacio.\n\nDescriba el proyecto.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    DescripcionTextBox.Focus();
+                    return;
+                }
 
                 var paso = ProyectosBLL.Guardar(this.proyectos);
                 if (paso)
