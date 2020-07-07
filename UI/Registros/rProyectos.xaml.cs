@@ -100,12 +100,24 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         //——————————————————————————————————————————————————————————————[ Nuevo ]———————————————————————————————————————————————————————————————
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Limpiar();
         }
         //——————————————————————————————————————————————————————————————[ Guardar ]———————————————————————————————————————————————————————————————
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            {
+                if (!Validar())
+                    return;
 
+                var paso = ProyectosBLL.Guardar(this.proyectos);
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Transaccion Exitosa", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Transaccion Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         //——————————————————————————————————————————————————————————————[ Eliminar ]———————————————————————————————————————————————————————————————
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
