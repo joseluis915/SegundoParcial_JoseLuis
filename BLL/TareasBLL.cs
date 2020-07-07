@@ -1,9 +1,9 @@
-﻿using SegundoParcial_JoseLuis.DAL;
-using SegundoParcial_JoseLuis.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SegundoParcial_JoseLuis.DAL;
+using SegundoParcial_JoseLuis.Entidades;
 
 namespace SegundoParcial_JoseLuis.BLL
 {
@@ -27,6 +27,7 @@ namespace SegundoParcial_JoseLuis.BLL
             {
                 contexto.Dispose();
             }
+
             return tareas;
         }
     }

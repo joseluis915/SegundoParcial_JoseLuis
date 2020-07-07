@@ -9,9 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using SegundoParcial_JoseLuis.Entidades;
 using SegundoParcial_JoseLuis.BLL;
-
 using static SegundoParcial_JoseLuis.UI.Registros.rProyectos;
 
 namespace SegundoParcial_JoseLuis.UI.Consultas

@@ -23,7 +23,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             this.DataContext = proyectos;
 
             //—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
-            TipoTareaComboBox.SelectedValuePath = "TareasId";
+            TipoTareaComboBox.SelectedValuePath = "TareaId";
             TipoTareaComboBox.DisplayMemberPath = "TipoTarea";
             TipoTareaComboBox.ItemsSource = TareasBLL.GetList();
         }
@@ -76,15 +76,16 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         {
             var filaDetalle = new ProyectosDetalle
             {
+                ProyectoId = this.proyectos.ProyectoId,
                 TareaId = Convert.ToInt32(TipoTareaComboBox.SelectedValue.ToString()),
-                Requerimiento = (RequerimientoTextBox.Text.ToString()),
-                Tiempo = Convert.ToDouble(TiempoTextBox.Text.ToString()),
+                Requerimiento = (RequerimientoTextBox.Text),
+                Tiempo = Convert.ToSingle(TiempoTextBox.Text)
             };
 
             this.proyectos.Detalle.Add(filaDetalle);
             Cargar();
 
-            TipoTareaComboBox.SelectedIndex = -1;
+
             RequerimientoTextBox.Clear();
             TiempoTextBox.Clear();
         }

@@ -8,9 +8,8 @@ namespace SegundoParcial_JoseLuis.DAL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Proyectos> Proyectos { get; set; }
         public DbSet<Tareas> Tareas { get; set; }
-
+        public DbSet<Proyectos> Proyectos { get; set; }
         //——————————————————————————————————————————————————————————————————————————————————————
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

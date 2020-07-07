@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SegundoParcial_JoseLuis.DAL;
-using SegundoParcial_JoseLuis.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using SegundoParcial_JoseLuis.DAL;
+using SegundoParcial_JoseLuis.Entidades;
 
 namespace SegundoParcial_JoseLuis.BLL
 {
@@ -53,8 +53,7 @@ namespace SegundoParcial_JoseLuis.BLL
 
             try
             {
-                //Borrar el detalle anterior.
-                contexto.Database.ExecuteSqlRaw($"Delete From ProyectosDetalle Where ProyectosId={proyectos.ProyectoId}");
+                contexto.Database.ExecuteSqlRaw($"Delete From ProyectosDetalle Where ProyectoId={proyectos.ProyectoId}");
 
                 foreach (var item in proyectos.Detalle)
                 {
@@ -152,7 +151,7 @@ namespace SegundoParcial_JoseLuis.BLL
             {
                 proyectos = contexto.Proyectos
                     .Where(p => p.ProyectoId == id)
-                    .Include(p => p.Detalle).ThenInclude(t => t.tipo)
+                    .Include(p => p.Detalle).ThenInclude(t => t.Tipo)
                     .SingleOrDefault();
             }
             catch (Exception)
