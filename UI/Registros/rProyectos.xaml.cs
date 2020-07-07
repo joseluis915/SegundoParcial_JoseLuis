@@ -83,7 +83,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
                 Tiempo = Convert.ToSingle(TiempoTextBox.Text)
             };
             //——————————————————————————————[Tiempo Total]——————————————————————————————
-            proyectos.Total += Convert.ToDouble(TiempoTextBox.Text.ToString());
+            proyectos.TiempoTotal += Convert.ToDouble(TiempoTextBox.Text.ToString());
             //——————————————————————————————————————————————————————————————————————————
             this.proyectos.Detalle.Add(filaDetalle);
             Cargar();

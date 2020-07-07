@@ -28,7 +28,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Total")
+                    b.Property<double>("TiempoTotal")
                         .HasColumnType("REAL");
 
                     b.HasKey("ProyectoId");
