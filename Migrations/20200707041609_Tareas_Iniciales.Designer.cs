@@ -9,8 +9,8 @@ using SegundoParcial_JoseLuis.DAL;
 namespace SegundoParcial_JoseLuis.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200707025035_Migracion_Inicial")]
-    partial class Migracion_Inicial
+    [Migration("20200707041609_Tareas_Iniciales")]
+    partial class Tareas_Iniciales
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,9 @@ namespace SegundoParcial_JoseLuis.Migrations
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("REAL");
 
                     b.HasKey("ProyectoId");
 

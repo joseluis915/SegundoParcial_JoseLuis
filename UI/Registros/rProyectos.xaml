@@ -62,7 +62,7 @@
                                 <DataGridTextColumn Header="TipoId" Binding="{Binding TareaId}"/>
                                 <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding Tipo.TipoTarea}"/>
                                 <DataGridTextColumn Header="Requerimiento" Binding="{Binding Requerimiento}"/>
-                                <DataGridTextColumn x:Name="TiempoDataGridTextColumn" Header="Tiempo" Binding="{Binding Tiempo}"/>
+                                <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -76,7 +76,7 @@
                             </Button>
                             <!--——————————————————————[ TiempoTotal ]——————————————————————-->
                             <Label Content="Tiempo Total" Margin="115,0,0,0"/>
-                            <TextBox x:Name="TiempoTotalTextBox" Width="100" TextChanged="TiempoTotalTextBox_TextChanged" IsReadOnly="True"/>
+                            <TextBox x:Name="TiempoTotalTextBox" Text="{Binding Total}" Width="100" IsReadOnly="True"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
