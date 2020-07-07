@@ -62,7 +62,7 @@
                                 <DataGridTextColumn Header="TipoId" Binding="{Binding TareaId}"/>
                                 <DataGridTextColumn Header="Tipo Tarea" Binding="{Binding Tipo.TipoTarea}"/>
                                 <DataGridTextColumn Header="Requerimiento" Binding="{Binding Requerimiento}"/>
-                                <DataGridTextColumn Header="Tiempo" Binding="{Binding Tiempo}"/>
+                                <DataGridTextColumn x:Name="TiempoDataGridTextColumn" Header="Tiempo" Binding="{Binding Tiempo}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 

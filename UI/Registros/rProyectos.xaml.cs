@@ -22,6 +22,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             InitializeComponent();
             this.DataContext = proyectos;
 
+            
             //—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
             TipoTareaComboBox.SelectedValuePath = "TareaId";
             TipoTareaComboBox.DisplayMemberPath = "TipoTarea";
@@ -136,7 +137,13 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         //——————————————————————————————————————————————————————————————[ Tiempo Total ]———————————————————————————————————————————————————————————————
         private void TiempoTotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //double sumar = 0;
+            //double sumar2 = 0;
+            //double total;
+            //sumar = Convert.ToDouble(TiempoTextBox.Text);
+            //sumar2 = Convert.ToDouble(TiempoTotalTextBox.Text);
+            //total = sumar += sumar2;
+            //TiempoTotalTextBox.Text = total.ToString();
         }
     }
 }

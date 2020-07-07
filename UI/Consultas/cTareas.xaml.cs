@@ -9,8 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SegundoParcial_JoseLuis.Entidades;
 using SegundoParcial_JoseLuis.BLL;
+using SegundoParcial_JoseLuis.Entidades;
 using static SegundoParcial_JoseLuis.UI.Registros.rProyectos;
 
 namespace SegundoParcial_JoseLuis.UI.Consultas
@@ -24,7 +24,32 @@ namespace SegundoParcial_JoseLuis.UI.Consultas
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
-            //PROGRAMAR EL BOTON CONSULTAR AQUI
+            List<Proyectos> listado = new List<Proyectos>();
+
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0:
+                        listado = ProyectosBLL.GetList(p => p.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text));
+                        break;
+
+                    case 1:
+                        listado = ProyectosBLL.GetList(p => p.Descripcion.Contains(CriterioTextBox.Text, StringComparison.OrdinalIgnoreCase));
+                        break;
+                }
+            }
+            else
+            {
+                listado = ProyectosBLL.GetList(c => true);
+            }
+            if (DesdeDatePicker.SelectedDate != null)
+                listado = (List<Proyectos>)ProyectosBLL.GetList(p => p.Fecha.Date >= DesdeDatePicker.SelectedDate);
+            if (HastaDatePicker.SelectedDate != null)
+                listado = (List<Proyectos>)ProyectosBLL.GetList(p => p.Fecha.Date <= HastaDatePicker.SelectedDate);
+
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }
