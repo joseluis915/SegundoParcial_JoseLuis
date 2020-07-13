@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SegundoParcial_JoseLuis.Migrations
 {
-    public partial class Tareas_Inicial : Migration
+    public partial class Tarea_Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

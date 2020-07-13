@@ -9,8 +9,8 @@ using SegundoParcial_JoseLuis.DAL;
 namespace SegundoParcial_JoseLuis.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200707042832_Tareas_Inicial")]
-    partial class Tareas_Inicial
+    [Migration("20200713020407_Tarea_Inicial")]
+    partial class Tarea_Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

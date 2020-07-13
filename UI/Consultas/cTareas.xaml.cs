@@ -20,6 +20,10 @@ namespace SegundoParcial_JoseLuis.UI.Consultas
         public cTareas()
         {
             InitializeComponent();
+            ////—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
+            //FiltroComboBox.SelectedValuePath = "TareaId";
+            //FiltroComboBox.DisplayMemberPath = "TipoTarea";
+            //FiltroComboBox.ItemsSource = TareasBLL.GetList();
         }
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)

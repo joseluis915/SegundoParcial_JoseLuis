@@ -16,6 +16,7 @@ namespace SegundoParcial_JoseLuis.Entidades
 
         [ForeignKey("TareaId")]
         public Tareas Tipo { get; set; } = new Tareas();
+
         public string Requerimiento { get; set; }
         public double Tiempo { get; set; }
     }
