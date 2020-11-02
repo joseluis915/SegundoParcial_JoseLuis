@@ -96,10 +96,19 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         //——————————————————————————————————————————————————————————————[ Remover Fila ]———————————————————————————————————————————————————————————————
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+            try
             {
-                proyectos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
-                Cargar();
+                double total = Convert.ToDouble(TiempoTotalTextBox.Text);
+                if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+                {
+                    proyectos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                    proyectos.TiempoTotal -= total;
+                    Cargar();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No has seleccionado ninguna Fila\n\nSeleccione la Fila a Remover.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         //——————————————————————————————————————————————————————————————[ Nuevo ]———————————————————————————————————————————————————————————————
