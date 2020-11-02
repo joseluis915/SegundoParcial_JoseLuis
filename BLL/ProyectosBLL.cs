@@ -31,6 +31,11 @@ namespace SegundoParcial_JoseLuis.BLL
 
             try
             {
+                foreach (var item in proyectos.Detalle)
+                {
+                    contexto.Entry(item.tareas).State = EntityState.Modified;
+                }
+
                 contexto.Proyectos.Add(proyectos);
                 paso = contexto.SaveChanges() > 0;
             }
@@ -151,7 +156,8 @@ namespace SegundoParcial_JoseLuis.BLL
             {
                 proyectos = contexto.Proyectos
                     .Where(p => p.ProyectoId == id)
-                    .Include(p => p.Detalle).ThenInclude(t => t.Tipo)
+                    .Include(p => p.Detalle)
+                    .ThenInclude(t => t.tareas)
                     .SingleOrDefault();
             }
             catch (Exception)

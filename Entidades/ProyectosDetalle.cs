@@ -1,23 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
+//Using agregados
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace SegundoParcial_JoseLuis.Entidades
 {
     public class ProyectosDetalle
     {
         [Key]
-        public int Id { get; set; }
+        public int ProyectosDetalleId { get; set; }
         public int ProyectoId { get; set; }
         public int TareaId { get; set; }
-
-        [ForeignKey("TareaId")]
-        public Tareas Tipo { get; set; } = new Tareas();
-
         public string Requerimiento { get; set; }
         public double Tiempo { get; set; }
+
+        //———————————————————————————[ ForeingKeys ]———————————————————————————
+        [ForeignKey("TareaId")]
+        public Tareas tareas { get; set; } = new Tareas();
     }
 }

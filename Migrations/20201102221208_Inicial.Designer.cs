@@ -9,8 +9,8 @@ using SegundoParcial_JoseLuis.DAL;
 namespace SegundoParcial_JoseLuis.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200713020407_Tarea_Inicial")]
-    partial class Tarea_Inicial
+    [Migration("20201102221208_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,7 @@ namespace SegundoParcial_JoseLuis.Migrations
 
             modelBuilder.Entity("SegundoParcial_JoseLuis.Entidades.ProyectosDetalle", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProyectosDetalleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -56,7 +56,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                     b.Property<double>("Tiempo")
                         .HasColumnType("REAL");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProyectosDetalleId");
 
                     b.HasIndex("ProyectoId");
 
@@ -109,7 +109,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SegundoParcial_JoseLuis.Entidades.Tareas", "Tipo")
+                    b.HasOne("SegundoParcial_JoseLuis.Entidades.Tareas", "tareas")
                         .WithMany()
                         .HasForeignKey("TareaId")
                         .OnDelete(DeleteBehavior.Cascade)

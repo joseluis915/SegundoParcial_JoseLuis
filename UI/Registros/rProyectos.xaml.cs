@@ -24,7 +24,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             this.DataContext = proyectos;
 
             //—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
-            TipoTareaComboBox.ItemsSource = TareasBLL.GetList();
+            TipoTareaComboBox.ItemsSource = TareasBLL.GetTareas();
             TipoTareaComboBox.SelectedValuePath = "TareaId";
             TipoTareaComboBox.DisplayMemberPath = "TipoTarea";
         }
@@ -79,7 +79,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             {
                 ProyectoId = this.proyectos.ProyectoId,
                 TareaId = Convert.ToInt32(TipoTareaComboBox.SelectedValue.ToString()),
-                //Tipo = ((Tareas)TipoTareaComboBox.SelectedItem),
+                tareas = ((Tareas)TipoTareaComboBox.SelectedItem),
                 Requerimiento = (RequerimientoTextBox.Text),
                 Tiempo = Convert.ToSingle(TiempoTextBox.Text)
             };
@@ -151,14 +151,7 @@ namespace SegundoParcial_JoseLuis.UI.Registros
                     MessageBox.Show("No se pudo eliminar el registro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        //——————————————————————————————————————————————————————————————[ TextChanged ]———————————————————————————————————————————————————————————————
-
-        //——————————————————————————————————————————[TiempoTotal - TextChanged]——————————————————————————————————————————
-        private void TiempoTotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-        //——————————————————————————————————————————[ Tiempo - TextChanged ]——————————————————————————————————————————
+        //——————————————————————————————————————————————————————————————[ Tiempo - TextChanged ]———————————————————————————————————————————————————————————————
         private void TiempoTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             try

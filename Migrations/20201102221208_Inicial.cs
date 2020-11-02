@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SegundoParcial_JoseLuis.Migrations
 {
-    public partial class Tarea_Inicial : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                 name: "ProyectosDetalle",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ProyectosDetalleId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ProyectoId = table.Column<int>(nullable: false),
                     TareaId = table.Column<int>(nullable: false),
@@ -48,7 +48,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProyectosDetalle", x => x.Id);
+                    table.PrimaryKey("PK_ProyectosDetalle", x => x.ProyectosDetalleId);
                     table.ForeignKey(
                         name: "FK_ProyectosDetalle_Proyectos_ProyectoId",
                         column: x => x.ProyectoId,

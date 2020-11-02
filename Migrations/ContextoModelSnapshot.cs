@@ -38,7 +38,7 @@ namespace SegundoParcial_JoseLuis.Migrations
 
             modelBuilder.Entity("SegundoParcial_JoseLuis.Entidades.ProyectosDetalle", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProyectosDetalleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -54,7 +54,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                     b.Property<double>("Tiempo")
                         .HasColumnType("REAL");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProyectosDetalleId");
 
                     b.HasIndex("ProyectoId");
 
@@ -107,7 +107,7 @@ namespace SegundoParcial_JoseLuis.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SegundoParcial_JoseLuis.Entidades.Tareas", "Tipo")
+                    b.HasOne("SegundoParcial_JoseLuis.Entidades.Tareas", "tareas")
                         .WithMany()
                         .HasForeignKey("TareaId")
                         .OnDelete(DeleteBehavior.Cascade)

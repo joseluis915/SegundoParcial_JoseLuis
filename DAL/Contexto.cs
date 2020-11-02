@@ -13,7 +13,7 @@ namespace SegundoParcial_JoseLuis.DAL
         //——————————————————————————————————————————————————————————————————————————————————————
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source= Data\ProyectoTareas_DB.db");
+            optionsBuilder.UseSqlite(@"Data Source = Data\ProyectoTareas.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
