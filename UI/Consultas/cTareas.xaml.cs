@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using SegundoParcial_JoseLuis.BLL;
 using SegundoParcial_JoseLuis.Entidades;
-using static SegundoParcial_JoseLuis.UI.Registros.rProyectos;
 
 namespace SegundoParcial_JoseLuis.UI.Consultas
 {
@@ -20,10 +11,6 @@ namespace SegundoParcial_JoseLuis.UI.Consultas
         public cTareas()
         {
             InitializeComponent();
-            ////—————————————————————————————————————[ VALORES DEL ComboBox ]—————————————————————————————————————
-            //FiltroComboBox.SelectedValuePath = "TareaId";
-            //FiltroComboBox.DisplayMemberPath = "TipoTarea";
-            //FiltroComboBox.ItemsSource = TareasBLL.GetList();
         }
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
@@ -35,11 +22,25 @@ namespace SegundoParcial_JoseLuis.UI.Consultas
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = ProyectosBLL.GetList(p => p.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text));
+                        try
+                        {
+                            listado = ProyectosBLL.GetList(p => p.ProyectoId == Utilidades.ToInt(CriterioTextBox.Text));
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
                         break;
 
                     case 1:
-                        listado = ProyectosBLL.GetList(p => p.Descripcion.Contains(CriterioTextBox.Text, StringComparison.OrdinalIgnoreCase));
+                        try
+                        {
+                            listado = ProyectosBLL.GetList(d => d.Descripcion.Contains(CriterioTextBox.Text));
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
                         break;
                 }
             }
@@ -47,10 +48,6 @@ namespace SegundoParcial_JoseLuis.UI.Consultas
             {
                 listado = ProyectosBLL.GetList(c => true);
             }
-            if (DesdeDatePicker.SelectedDate != null)
-                listado = (List<Proyectos>)ProyectosBLL.GetList(p => p.Fecha.Date >= DesdeDatePicker.SelectedDate);
-            if (HastaDatePicker.SelectedDate != null)
-                listado = (List<Proyectos>)ProyectosBLL.GetList(p => p.Fecha.Date <= HastaDatePicker.SelectedDate);
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
