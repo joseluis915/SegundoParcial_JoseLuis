@@ -61,7 +61,6 @@ namespace SegundoParcial_JoseLuis.UI.Registros
             {
                 proyectos = encontrado;
                 Cargar();
-                //MessageBox.Show("Proyecto Encontrado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
@@ -98,11 +97,11 @@ namespace SegundoParcial_JoseLuis.UI.Registros
         {
             try
             {
-                double total = Convert.ToDouble(TiempoTotalTextBox.Text);
+                var detalle = (ProyectosDetalle)DetalleDataGrid.SelectedItem;
                 if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
                 {
                     proyectos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
-                    proyectos.TiempoTotal -= total;
+                    proyectos.TiempoTotal = proyectos.TiempoTotal - detalle.Tiempo;
                     Cargar();
                 }
             }
